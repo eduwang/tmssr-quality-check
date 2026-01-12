@@ -602,7 +602,7 @@ def compare_data(df_initial, df_final, theme):
         name='학기 초',
         text=initial_tmssr_counts.values,
         textposition='outside',
-        marker=dict(color='#3498db', line=dict(color='black', width=1.5)),
+        marker=dict(color='#d0d0d0', line=dict(color='black', width=1.5)),
         hovertemplate='<b>%{x}</b><br>학기 초: %{y}<extra></extra>'
     ))
     
@@ -612,16 +612,16 @@ def compare_data(df_initial, df_final, theme):
         name='학기 말',
         text=final_tmssr_counts.values,
         textposition='outside',
-        marker=dict(color='#e74c3c', line=dict(color='black', width=1.5)),
+        marker=dict(color='#404040', line=dict(color='black', width=1.5)),
         hovertemplate='<b>%{x}</b><br>학기 말: %{y}<extra></extra>'
     ))
     
     fig_tmssr_compare.update_layout(
         barmode='group',
-        title=dict(
-            text='TMSSR 카테고리 도수분포 비교',
-            font=dict(size=16, family='나눔고딕', color=theme['text_color'])
-        ),
+        # title=dict(
+        #     text='TMSSR 카테고리 도수분포 비교',
+        #     font=dict(size=16, family='나눔고딕', color=theme['text_color'])
+        # ),
         xaxis=dict(
             title=dict(text='TMSSR 카테고리', font=dict(size=12, family='나눔고딕', color=theme['text_color'])),
             tickfont=dict(size=11, family='나눔고딕', color=theme['text_color'])
@@ -671,7 +671,7 @@ def compare_data(df_initial, df_final, theme):
     # ========== 2. Potential 도수분포 비교 ==========
     st.header("2️⃣ Potential 도수분포 비교")
     
-    potential_order = ['High', 'Low']
+    potential_order = ['Low', 'High']
     
     # 데이터 집계
     initial_potential_counts = df_initial_potential['Potential'].value_counts().reindex(potential_order, fill_value=0)
@@ -686,7 +686,7 @@ def compare_data(df_initial, df_final, theme):
         name='학기 초',
         text=initial_potential_counts.values,
         textposition='outside',
-        marker=dict(color='#3498db', line=dict(color='black', width=1.5)),
+        marker=dict(color='#d0d0d0', line=dict(color='black', width=1.5)),
         hovertemplate='<b>%{x}</b><br>학기 초: %{y}<extra></extra>'
     ))
     
@@ -696,16 +696,16 @@ def compare_data(df_initial, df_final, theme):
         name='학기 말',
         text=final_potential_counts.values,
         textposition='outside',
-        marker=dict(color='#e74c3c', line=dict(color='black', width=1.5)),
+        marker=dict(color='#404040', line=dict(color='black', width=1.5)),
         hovertemplate='<b>%{x}</b><br>학기 말: %{y}<extra></extra>'
     ))
     
     fig_potential_compare.update_layout(
         barmode='group',
-        title=dict(
-            text='Potential 도수분포 비교',
-            font=dict(size=16, family='나눔고딕', color=theme['text_color'])
-        ),
+        # title=dict(
+        #     text='Potential 도수분포 비교',
+        #     font=dict(size=16, family='나눔고딕', color=theme['text_color'])
+        # ),
         xaxis=dict(
             title=dict(text='Potential 카테고리', font=dict(size=12, family='나눔고딕', color=theme['text_color'])),
             tickfont=dict(size=11, family='나눔고딕', color=theme['text_color'])
@@ -784,8 +784,8 @@ def compare_data(df_initial, df_final, theme):
             name='Low',
             text=[f'{pct:.1f}%' for pct in initial_percentages['Low']],
             textposition='inside',
-            textfont=dict(size=10, color='white', family='나눔고딕'),
-            marker=dict(color='#e74c3c', line=dict(color='black', width=1.5)),
+            textfont=dict(size=10, color='black', family='나눔고딕'),
+            marker=dict(color='#a0a0a0', line=dict(color='black', width=1.5)),
             hovertemplate='<b>%{x}</b><br>Low: %{y:.1f}%<extra></extra>'
         ))
         
@@ -797,16 +797,16 @@ def compare_data(df_initial, df_final, theme):
             text=[f'{pct:.1f}%' for pct in initial_percentages['High']],
             textposition='inside',
             textfont=dict(size=10, color='white', family='나눔고딕'),
-            marker=dict(color='#2ecc71', line=dict(color='black', width=1.5)),
+            marker=dict(color='#505050', line=dict(color='black', width=1.5)),
             hovertemplate='<b>%{x}</b><br>High: %{y:.1f}%<extra></extra>'
         ))
         
         fig_initial_compare.update_layout(
             barmode='stack',
-            title=dict(
-                text='학기 초 TMSSR별 Potential 비율',
-                font=dict(size=14, family='나눔고딕', color=theme['text_color'])
-            ),
+            # title=dict(
+            #     text='학기 초 TMSSR별 Potential 비율',
+            #     font=dict(size=14, family='나눔고딕', color=theme['text_color'])
+            # ),
             xaxis=dict(
                 title=dict(text='TMSSR 카테고리', font=dict(size=11, family='나눔고딕', color=theme['text_color'])),
                 tickfont=dict(size=10, family='나눔고딕', color=theme['text_color'])
@@ -840,8 +840,8 @@ def compare_data(df_initial, df_final, theme):
             name='Low',
             text=[f'{pct:.1f}%' for pct in final_percentages['Low']],
             textposition='inside',
-            textfont=dict(size=10, color='white', family='나눔고딕'),
-            marker=dict(color='#e74c3c', line=dict(color='black', width=1.5)),
+            textfont=dict(size=10, color='black', family='나눔고딕'),
+            marker=dict(color='#a0a0a0', line=dict(color='black', width=1.5)),
             hovertemplate='<b>%{x}</b><br>Low: %{y:.1f}%<extra></extra>'
         ))
         
@@ -853,16 +853,16 @@ def compare_data(df_initial, df_final, theme):
             text=[f'{pct:.1f}%' for pct in final_percentages['High']],
             textposition='inside',
             textfont=dict(size=10, color='white', family='나눔고딕'),
-            marker=dict(color='#2ecc71', line=dict(color='black', width=1.5)),
+            marker=dict(color='#505050', line=dict(color='black', width=1.5)),
             hovertemplate='<b>%{x}</b><br>High: %{y:.1f}%<extra></extra>'
         ))
         
         fig_final_compare.update_layout(
             barmode='stack',
-            title=dict(
-                text='학기 말 TMSSR별 Potential 비율',
-                font=dict(size=14, family='나눔고딕', color=theme['text_color'])
-            ),
+            # title=dict(
+            #     text='학기 말 TMSSR별 Potential 비율',
+            #     font=dict(size=14, family='나눔고딕', color=theme['text_color'])
+            # ),
             xaxis=dict(
                 title=dict(text='TMSSR 카테고리', font=dict(size=11, family='나눔고딕', color=theme['text_color'])),
                 tickfont=dict(size=10, family='나눔고딕', color=theme['text_color'])
@@ -883,6 +883,41 @@ def compare_data(df_initial, df_final, theme):
         fig_final_compare.update_yaxes(showgrid=True, gridwidth=1, gridcolor=theme['grid_color'])
         
         st.plotly_chart(fig_final_compare, use_container_width=True)
+    
+    st.divider()
+    
+    # ========== 4. TMSSR별 Potential 비율 비교 표 ==========
+    st.header("4️⃣ TMSSR별 Potential 비율 비교 (표)")
+    
+    col_table_left, col_table_right = st.columns(2)
+    
+    with col_table_left:
+        st.subheader("학기 초")
+        initial_table_data = []
+        for tmssr in tmssr_order:
+            high_pct = initial_percentages.loc[tmssr, 'High'] if tmssr in initial_percentages.index else 0
+            low_pct = initial_percentages.loc[tmssr, 'Low'] if tmssr in initial_percentages.index else 0
+            initial_table_data.append({
+                'TMSSR': tmssr,
+                'High (%)': f'{high_pct:.1f}%',
+                'Low (%)': f'{low_pct:.1f}%'
+            })
+        initial_table_df = pd.DataFrame(initial_table_data)
+        st.dataframe(initial_table_df, use_container_width=True, hide_index=True)
+    
+    with col_table_right:
+        st.subheader("학기 말")
+        final_table_data = []
+        for tmssr in tmssr_order:
+            high_pct = final_percentages.loc[tmssr, 'High'] if tmssr in final_percentages.index else 0
+            low_pct = final_percentages.loc[tmssr, 'Low'] if tmssr in final_percentages.index else 0
+            final_table_data.append({
+                'TMSSR': tmssr,
+                'High (%)': f'{high_pct:.1f}%',
+                'Low (%)': f'{low_pct:.1f}%'
+            })
+        final_table_df = pd.DataFrame(final_table_data)
+        st.dataframe(final_table_df, use_container_width=True, hide_index=True)
 
 
 # 메인 실행부
